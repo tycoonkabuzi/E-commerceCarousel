@@ -1,1 +1,78 @@
-/*# sourceMappingURL=main.css.map */
+* {
+  font-family: "Kumbh Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main .header {
+  height: 50vh;
+}
+.main .header__nav {
+  width: 100%;
+  position: relative;
+  height: 80px;
+  background-color: white;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  align-items: center;
+  padding-left: 20px;
+  z-index: 1;
+}
+.main .header__profil {
+  width: 4vh;
+}
+.main .header__name {
+  font-size: 3.7vh;
+}
+.main .header__carousel-content img {
+  position: absolute;
+  width: 100%;
+  top: 10px;
+}
+.main .header__direction {
+  position: absolute;
+  background-color: hsl(0deg, 0%, 100%);
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  z-index: 1;
+  bottom: 550px;
+}
+.main .header__direction img {
+  display: block;
+  width: 1.3vh;
+  margin: auto;
+  margin-top: 1.5vh;
+}
+.main .header__direction--right {
+  right: 0;
+}
+.main .header__direction--left {
+  left: 0;
+}
+.main .section {
+  margin-left: 3vh;
+  margin-right: 2vh;
+}
+.main .section__main h4 {
+  text-transform: uppercase;
+  color: hsl(26deg, 100%, 55%);
+  font-size: 1.4vh;
+  font-weight: 800;
+  letter-spacing: 0.3vh;
+  padding-bottom: 1vh;
+}
+.main .section__main h1 {
+  padding-bottom: 2vh;
+  font-size: 3.4vh;
+}
+.main .section__main p {
+  font-size: 1.8vh;
+  color: hsl(219deg, 9%, 45%);
+}
+.main .section__prices {
+  display: grid;
+  grid-template-columns: 18vh 14vh auto;
+  align-items: center;
+}/*# sourceMappingURL=main.css.map */

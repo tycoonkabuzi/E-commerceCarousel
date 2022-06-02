@@ -1,0 +1,102 @@
+
+//colors
+$orange: hsl(26, 100%, 55%);
+$pale-orange: hsl(25, 100%, 94%);
+$very-vark-blue: hsl(220, 13%, 13%);
+$dark-grayish-blue: hsl(219, 9%, 45%);
+$grayish-blue: hsl(220, 14%, 75%);
+$light-grayish-blue: hsl(223, 64%, 98%);
+$white: hsl(0, 0%, 100%);
+*{
+    font-family: 'Kumbh Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+.main{
+    .header{
+        height:50vh;
+        &__nav{
+            width: 100%;
+            position: relative;
+            height: 80px;
+            background-color:white;
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            align-items: center;
+            padding-left: 20px;
+            z-index: 1;
+        }
+        &__profil{
+            width: 4vh;
+        }
+        &__name{
+            font-size: 3.7vh;
+        }
+        &__carousel-content{
+            img{
+                position: absolute;
+                width: 100%;
+                top:10px; 
+            }
+        }
+        &__direction{
+            position: absolute;
+            background-color: $white;
+            width:40px;
+            height: 40px;
+            border-radius: 40px;
+            z-index: 1;
+            bottom: 550px;
+            img{
+                display: block;
+                width: 1.3vh;
+                margin: auto;
+                margin-top: 1.5vh;
+            }
+           
+            &--right{
+                right: 0;
+            }
+            &--left{
+                left: 0;
+                
+            }
+            
+        }
+        
+
+    }
+   .section{
+    margin-left: 3vh;
+    margin-right: 2vh;
+       &__main{
+           h4{
+               text-transform: uppercase;
+               color: $orange;
+               font-size: 1.4vh;
+               font-weight: 800;
+               letter-spacing: 0.3vh;
+               padding-bottom: 1vh;
+           }
+           h1{
+                padding-bottom: 2vh;
+                font-size: 3.4vh;
+           }
+           p{
+               font-size: 1.8vh;
+               color: $dark-grayish-blue;
+           }
+       }
+       &__boutons{
+           
+       }
+       &__prices{
+           display: grid;
+           grid-template-columns: 18vh 14vh auto;
+           align-items: center;
+       }
+   }
+    
+}

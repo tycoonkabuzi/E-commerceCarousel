@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" href="./sass/main.css">
-  
+
   <title>Frontend Mentor | E-commerce product page</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
@@ -17,21 +18,50 @@
 </head>
 <body>
 <div class="main">
-  <nav class="main__nav">
-    <img class="main__hambourger" alt="icon menu" src="/images/icon-menu.svg">
-    <img class="main__panier" alt="image pagnier" src="/images/icon-cart.svg">
-    <img class="main__profil" alt="image avatar" src="/images/image-avatar.png">
-  </nav>
-
-  <div class="main__carousel">
-    <div class="main__direction main__direction--left"> <img alt="left arrow" src="./images/icon-previous.svg"></div>
-    <div class="main__carousel-content">
-      <img alt="sneakers" src="/images/image-product-1.jpg">
-      <img alt="sneakers" src="/images/image-product-2.jpg">
-      <img alt="sneakers" src="/images/image-product-3.jpg">
-      <img alt="sneakers" src="/images/image-product-4.jpg">
+  <div class="header">
+    <nav class="header__nav">
+      <img class="header__hambourger" alt="icon menu" src="/images/icon-menu.svg">
+      <h1 class="header__name">Sneakers</h1>
+      <img class="header__panier" alt="image pagnier" src="/images/icon-cart.svg">
+      <img class="header__profil" alt="image avatar" src="/images/image-avatar.png">
+    </nav>
+  
+    <div class="header__carousel">
+      <div class="header__direction header__direction--left"> <img alt="left arrow" src="./images/icon-previous.svg"></div>
+      <div class="header__carousel-content">
+        <img alt="sneakers" src="/images/image-product-1.jpg">
+        <img alt="sneakers" src="/images/image-product-2.jpg">
+        <img alt="sneakers" src="/images/image-product-3.jpg">
+        <img alt="sneakers" src="/images/image-product-4.jpg">
+      </div>
+      <div class="header__direction header__direction--right"> <img alt="right arrow" src="./images/icon-next.svg"></div>
     </div>
-    <div class="main__direction main__direction--right"> <img alt="right arrow" src="./images/icon-next.svg"></div>
+  
+  </div>
+  <div class="section">
+    <div class="section__main">
+       <h4>Sneaker Company</h4>
+       <h1> Fall Limited Edition Sneakers</h1>
+       <p> 
+        These low-profile sneakers are your perfect casual wear companion. Featuring a 
+        durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+    </div>
+    <div class="section__boutons">
+      <div class="section__prices">
+        <h1>$125.00</h1>
+        <h3>50%</h3>
+        <h4>$250.00</h4>
+      </div>
+      <div class="section__howMany">
+        <img alt="minus" src="/images/icon-minus.svg">
+        <p> 0</p>
+        <img alt="plus" src="/images/icon-plus.svg">
+      </div>
+      <bouton>
+        <img alt="panier" src="/images/icon-cart.svg">
+        <h4> Add to card</h4>
+      </bouton>
+    </div>
   </div>
 </div>
   Collections
@@ -40,12 +70,6 @@
   About
   Contact
 
-  Sneaker Company
-
-  Fall Limited Edition Sneakers
-
-  These low-profile sneakers are your perfect casual wear companion. Featuring a 
-  durable rubber outer sole, they’ll withstand everything the weather can offer.
 
   $125.00
   50%
