@@ -7,6 +7,13 @@ $dark-grayish-blue: hsl(219, 9%, 45%);
 $grayish-blue: hsl(220, 14%, 75%);
 $light-grayish-blue: hsl(223, 64%, 98%);
 $white: hsl(0, 0%, 100%);
+//mixins
+@mixin extra-large {
+    @media only screen and (min-width: 1200px) {
+        @content;
+    }
+}
+
 *{
     font-family: 'Kumbh Sans', sans-serif;
     margin: 0;
@@ -15,6 +22,7 @@ $white: hsl(0, 0%, 100%);
     
 }
 .main{
+   
     .header{
         height:50vh;
         &__nav{
@@ -26,31 +34,135 @@ $white: hsl(0, 0%, 100%);
             grid-template-columns: 4vh 28vh 5vh 2vh;
             align-items: center;
             padding-left: 20px;
-            z-index: 1;
+            z-index: 2;
+            @include extra-large(){
+                width: 80%;
+                grid-template-columns: 135vh 10vh auto;
+                margin: auto;
+                border-bottom: 0.2vh solid $grayish-blue;
+                padding-bottom: 10vh;
+                padding-top: 3vh;
+            }
+        }
+        &__hambourger{
+            cursor: pointer;
+            @include extra-large(){
+                display: none;
+            }
         }
         &__profil{
             width: 4vh;
+            @include extra-large(){
+               width: 7vh;
+            }
         }
         &__name{
             font-size: 3.7vh;
         }
-        &__carousel-content{
-            img{
-                position: absolute;
-                width: 100%;
-                top:10px; 
+        &__notification{
+          transform:scale(0);
+          position: absolute;
+        }
+        &__notification.visible{
+            transform: scale(1);
+            background-color: $orange;
+            width: 2.5vh;
+            height: 1.7vh;
+            top: 3vh;
+            right: 10vh;
+            border-radius: 2vh;
+            p{ 
+               color: $light-grayish-blue;
+               font-size: 1.3vh;
+               text-align: center;
+               font-weight: 700;
             }
         }
+        &__cart{
+            margin-top: 1vh;
+            position: absolute;
+            left: 0;
+            right: 0;
+            &-content{
+              transform: scale(0);
+            }
+            &-content.visible{
+              
+                transform: scale(1);
+                background-color: $light-grayish-blue;
+                border-radius: 1.5vh;
+                width: 43vh;
+                height: 33vh;
+                margin: auto;
+                h4{
+                    padding: 3vh;
+                }
+               
+                hr{
+                 color: white;
+                }
+            }
+        }
+        &__cart.visible{
+            margin-top: 1vh;
+            position: absolute;
+            left: 0;
+            right: 0;
+            &-content{
+                background-color: $light-grayish-blue;
+                border-radius: 1.5vh;
+                width: 43vh;
+                height: 33vh;
+                margin: auto;
+                h4{
+                    padding: 3vh;
+                }
+               
+                hr{
+                 color: white;
+                }
+            }
+        }
+        &__item1{
+            transform: scale(0);
+            &--empty{
+                transform: scale(1);
+                p{
+                    margin-top: 10vh;
+                    text-align: center;
+                    font-weight: 700;
+                    font-size: 1.7vh;
+                    color: $dark-grayish-blue;
+    
+                }
+            }
+           
+        }
+        &__item2{
+            transform: scale(0);
+            &--filled{
+                transform: scale(1);
+            }
+        }
+       
+       
         &__menu{
             position: absolute;
             background-color: rgba(27, 27, 54, 0.525);
             width: 100%;
             height: 120%;
-            z-index: 1;
+            z-index: 2;
             top: 0;
             transform: scale(0);
             transition: 50ms ease-in ;
-
+            @include extra-large{
+                background-color: white;
+                transform: scale(1);
+                width: auto;
+                height: 10vh;
+                position: absolute;
+                left: 50vh;
+            }
         }
         &__menu-contenu{
             background-color: $light-grayish-blue;
@@ -60,14 +172,32 @@ $white: hsl(0, 0%, 100%);
             padding-left: 4vh;
             transform:translateX(-20vh);
             transition: 40ms ease-in ;
+            @include extra-large{
+                width: 80vh;
+                background-color: white;
+                transform:translateX(0vh);
+                margin-top: 3vh;
+            }
             img{
-               margin-bottom: 5vh;   
+               margin-bottom: 5vh;
+               cursor: pointer;   
+               @include extra-large{
+                display: none;
+            }
             }
             li{
                 list-style: none;
                 margin-bottom: 3vh;
                 font-weight: 700;
                 font-size: 2.2vh;
+                @include extra-large{
+                    display:inline;
+                    margin-left: 4vh;
+                    color: $dark-grayish-blue;
+                    font-weight: 200;
+                    font-size: 2vh;
+                }
+               
             }
         }
         &__menu.close{
@@ -77,7 +207,7 @@ $white: hsl(0, 0%, 100%);
             width: 100%;
             height: 120%;
             transform: scale(1);
-            z-index: 1;
+            z-index: 3;
             top: 0;
             transition: 50ms ease-in ;
         }
@@ -100,35 +230,43 @@ $white: hsl(0, 0%, 100%);
                 font-size: 2.2vh;
             }
         }
-        &__direction{
-            position: absolute;
-            background-color: $white;
-            width:40px;
-            height: 40px;
-            border-radius: 40px;
-            z-index: 0;
-            bottom: 550px;
-            img{
-                display: block;
-                width: 1.3vh;
-                margin: auto;
-                margin-top: 1.5vh;
-            }
-           
-            &--right{
-                right: 0;
-            }
-            &--left{
-                left: 0;
-                
-            }
-            
+       
+    
+    &__products{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        margin-left: 2vh;
+        align-items: center;
+      #product{
+          width: 6.5vh;
+          border-radius: 1vh;
+          
+      }
+      p{
+          display: block;
+          width: 25vh;
+          color: $dark-grayish-blue;
+      }
+    }
+    .checkout{
+        width: 37vh;
+        margin: auto;
+        margin-top: 3vh;
+        h4{
+           padding: 0vh; 
         }
-
-        
-
+    }
     }
    .section{
+    @include extra-large{
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: center;
+        width: 70%;
+        margin: auto;
+        margin-top: -30vh;
+       
+    }
     margin-left: 3vh;
     margin-right: 2vh;
        &__main{
@@ -139,19 +277,98 @@ $white: hsl(0, 0%, 100%);
                font-weight: 800;
                letter-spacing: 0.3vh;
                padding-bottom: 1vh;
+               @include extra-large{
+                font-size: 2vh;
+               }
            }
            h1{
                 padding-bottom: 2vh;
                 font-size: 3.4vh;
+                @include extra-large{
+                    font-size: 6vh;
+                }
            }
            p{
                font-size: 1.8vh;
                color: $dark-grayish-blue;
+               @include extra-large{
+                   font-size: 2.2vh;
+
+                }
            }
        }
+
+    &__carousel{
+        @include extra-large(){
+            position:relative;
+            
+        }
+    }
+    &__mark{
+        display: none;
+
+        @include extra-large{
+            display:block;
+            width: 80vh;
+            margin-top: 65vh;
+            img{
+                width: 12vh;
+                margin-right: 4vh;
+                border-radius: 1vh;
+            }
+            
+        }
+    }
+    &__carousel-content{
+        img{
+            position: absolute;
+            width:48vh;
+            top:10px; 
+            @include extra-large(){
+                width:60vh;
+                height: auto;
+                border-radius: 5vh;
+            }
+        }
+    }
+    &__content{
+        @include extra-large(){
+           margin-top: 10vh;
+        }
+    }
        &__boutons{
            
        }
+       &__direction{
+        position: absolute;
+        background-color: $white;
+        width:40px;
+        height: 40px;
+        border-radius: 40px;
+        z-index: 2;
+        bottom: 550px;
+        @include extra-large{
+            display: none;
+        }
+        img{
+            display: block;
+            width: 1.3vh;
+            margin: auto;
+            margin-top: 1.5vh;
+        }
+       
+        &--right{
+            
+            right: 0;
+        }
+        &--left{
+            z-index: 2;
+            left: 0;
+            
+        }
+        
+    }
+
        &__prices{
            margin-top: 4vh;
            display: grid;
@@ -165,6 +382,7 @@ $white: hsl(0, 0%, 100%);
                color: $orange;
                font-size: 2.2vh;
                border-radius: 1vh;
+              
            }
            h4{
             display: block;
@@ -203,6 +421,9 @@ $white: hsl(0, 0%, 100%);
        #svg{
            width: 2.3vh;
            fill:white;
+       }
+       #minus,#plus{
+           cursor: pointer;
        }
    }
     
