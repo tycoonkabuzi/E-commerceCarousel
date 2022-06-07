@@ -306,6 +306,10 @@ $white: hsl(0, 0%, 100%);
     }
     &__mark{
         display: none;
+        .current{
+            border: 0.4vh solid $orange;
+            opacity: 0.5;
+        }
 
         @include extra-large{
             display:block;

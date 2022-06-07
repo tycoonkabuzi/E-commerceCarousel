@@ -295,6 +295,10 @@
 .main .section__mark {
   display: none;
 }
+.main .section__mark .current {
+  border: 0.4vh solid hsl(26deg, 100%, 55%);
+  opacity: 0.5;
+}
 @media only screen and (min-width: 1200px) {
   .main .section__mark {
     display: block;
