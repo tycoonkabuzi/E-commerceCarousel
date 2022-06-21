@@ -22,7 +22,7 @@
 @media only screen and (min-width: 1200px) {
   .main .header__nav {
     width: 80%;
-    grid-template-columns: 135vh 10vh auto;
+    grid-template-columns: 120vh 10vh auto;
     margin: auto;
     border-bottom: 0.2vh solid hsl(220deg, 14%, 75%);
     padding-bottom: 10vh;
@@ -61,6 +61,14 @@
   right: 10vh;
   border-radius: 2vh;
 }
+@media only screen and (min-width: 1200px) {
+  .main .header__notification.visible {
+    width: 3vh;
+    height: 2vh;
+    right: 16vh;
+    top: 4vh;
+  }
+}
 .main .header__notification.visible p {
   color: hsl(223deg, 64%, 98%);
   font-size: 1.3vh;
@@ -72,11 +80,18 @@
   position: absolute;
   left: 0;
   right: 0;
+  z-index: 4;
+}
+@media only screen and (min-width: 1200px) {
+  .main .header__cart {
+    left: 100vh;
+  }
 }
 .main .header__cart-content {
   transform: scale(0);
 }
 .main .header__cart-content.visible {
+  box-shadow: 0.1vh 1vh 1vh rgba(128, 128, 128, 0.419);
   transform: scale(1);
   background-color: hsl(223deg, 64%, 98%);
   border-radius: 1.5vh;
@@ -133,7 +148,7 @@
   background-color: rgba(27, 27, 54, 0.525);
   width: 100%;
   height: 120%;
-  z-index: 2;
+  z-index: 4;
   top: 0;
   transform: scale(0);
   transition: 50ms ease-in;
@@ -208,6 +223,8 @@
   padding-left: 4vh;
   transform: translateX(0vh);
   transition: 500ms ease-in;
+  position: absolute;
+  z-index: 2;
 }
 .main .header__menu-contenu.trigger img {
   margin-bottom: 5vh;
@@ -243,8 +260,7 @@
   padding: 0vh;
 }
 .main .section {
-  margin-left: 3vh;
-  margin-right: 2vh;
+  margin-top: -45vh;
 }
 @media only screen and (min-width: 1200px) {
   .main .section {
@@ -255,6 +271,31 @@
     margin: auto;
     margin-top: -30vh;
   }
+}
+.main .section__hidden {
+  background-color: rgba(0, 0, 0, 0.438);
+  position: absolute;
+  width: 100%;
+  height: 110vh;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 6;
+  transform: scale(1);
+  transition: 100ms ease-in;
+}
+.main .section__hidden.hidden {
+  transform: scale(0);
+  transition: 100ms ease-in;
+}
+.main .section__content {
+  display: block;
+  position: relative;
+  background-color: white;
+  z-index: 1;
+  margin-left: 3vh;
+  margin-right: 2vh;
 }
 .main .section__main h4 {
   text-transform: uppercase;
@@ -284,7 +325,7 @@
 }
 @media only screen and (min-width: 1200px) {
   .main .section__main p {
-    font-size: 2.2vh;
+    font-size: 2vh;
   }
 }
 @media only screen and (min-width: 1200px) {
@@ -302,7 +343,7 @@
 @media only screen and (min-width: 1200px) {
   .main .section__mark {
     display: block;
-    width: 80vh;
+    width: 70vh;
     margin-top: 65vh;
   }
   .main .section__mark img {
@@ -311,21 +352,99 @@
     border-radius: 1vh;
   }
 }
-.main .section__carousel-content img {
+.main .section__mark.hidden img {
+  width: 10vh;
+  margin: auto;
+}
+@media only screen and (min-width: 1200px) {
+  .main .section__mark.hidden {
+    width: 50vh;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 75vh;
+  }
+}
+.main .section__track {
+  height: 50vh;
+  position: relative;
+  overflow: hidden;
+  margin-left: 0vh;
+  margin-right: 0vh;
+  z-index: 0;
+}
+@media only screen and (min-width: 1200px) {
+  .main .section__track {
+    height: 80vh;
+  }
+}
+.main .section__track.hidden {
+  position: relative;
+  width: 76vh;
+  height: auto;
+  margin: auto;
+  margin-top: 15vh;
+}
+.main .section__close {
+  width: 3vh;
   position: absolute;
-  width: 48vh;
+  z-index: 8;
+  bottom: 85vh;
+  left: 120vh;
+  cursor: pointer;
+}
+.main .section__carousel-content {
+  transition: 400ms ease-in;
+  bottom: 45vh;
+  z-index: 5;
+}
+.main .section__carousel-content img {
+  width: 100%;
   top: 10px;
+  position: absolute;
 }
 @media only screen and (min-width: 1200px) {
   .main .section__carousel-content img {
     width: 60vh;
     height: auto;
     border-radius: 5vh;
+    z-index: 2;
+  }
+}
+.main .section__carousel-content.hidden {
+  width: 100%;
+  transition: 400ms ease-in;
+  z-index: 5;
+}
+.main .section__carousel-content.hidden img {
+  bottom: 10vh;
+  position: absolute;
+  width: 100%;
+  top: 10px;
+  left: 0%;
+}
+@media only screen and (min-width: 1200px) {
+  .main .section__carousel-content.hidden img {
+    width: 70vh;
+    height: auto;
+    border-radius: 2vh;
+    z-index: 2;
   }
 }
 @media only screen and (min-width: 1200px) {
   .main .section__content {
     margin-top: 10vh;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .main .section__boutons {
+    width: 50vh;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .main .section #group_boutons {
+    display: grid;
+    grid-template-columns: auto auto;
   }
 }
 .main .section__direction {
@@ -334,8 +453,8 @@
   width: 40px;
   height: 40px;
   border-radius: 40px;
-  z-index: 2;
-  bottom: 550px;
+  z-index: 5;
+  bottom: 510px;
 }
 @media only screen and (min-width: 1200px) {
   .main .section__direction {
@@ -352,8 +471,33 @@
   right: 0;
 }
 .main .section__direction--left {
-  z-index: 2;
   left: 0;
+}
+.main .section__directionHidden {
+  position: absolute;
+  background-color: hsl(0deg, 0%, 100%);
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  z-index: 5;
+  bottom: 50vh;
+}
+@media only screen and (min-width: 1200px) {
+  .main .section__directionHidden {
+    display: block;
+  }
+}
+.main .section__directionHidden img {
+  display: block;
+  width: 1.3vh;
+  margin: auto;
+  margin-top: 1.5vh;
+}
+.main .section__directionHidden--right {
+  right: 53vh;
+}
+.main .section__directionHidden--left {
+  left: 47vh;
 }
 .main .section__prices {
   margin-top: 4vh;
@@ -375,6 +519,11 @@
   color: hsl(219deg, 9%, 45%);
   text-decoration: line-through;
 }
+@media only screen and (min-width: 1200px) {
+  .main .section__prices {
+    grid-template-columns: 15vh auto;
+  }
+}
 .main .section__howMany {
   background-color: hsl(223deg, 64%, 98%);
   width: 40vh;
@@ -382,11 +531,18 @@
   margin-top: 4vh;
   padding-left: 4vh;
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 0vh 0vh 0vh;
   align-items: center;
   -moz-column-gap: 9vh;
        column-gap: 9vh;
   border-radius: 2vh;
+}
+@media only screen and (min-width: 1200px) {
+  .main .section__howMany {
+    width: 21vh;
+    padding-left: 0vh;
+    padding-left: 1vh;
+  }
 }
 .main .section__howMany p {
   font-weight: 700;
@@ -403,6 +559,7 @@
   border-radius: 2vh;
   -moz-column-gap: 2vh;
        column-gap: 2vh;
+  box-shadow: 0.2vh 0.7vh 10vh hsl(25deg, 100%, 94%);
 }
 .main .section #svg {
   width: 2.3vh;

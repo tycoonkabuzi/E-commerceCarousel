@@ -22,7 +22,7 @@ $white: hsl(0, 0%, 100%);
     
 }
 .main{
-   
+     
     .header{
         height:50vh;
         &__nav{
@@ -37,7 +37,7 @@ $white: hsl(0, 0%, 100%);
             z-index: 2;
             @include extra-large(){
                 width: 80%;
-                grid-template-columns: 135vh 10vh auto;
+                grid-template-columns: 120vh 10vh auto;
                 margin: auto;
                 border-bottom: 0.2vh solid $grayish-blue;
                 padding-bottom: 10vh;
@@ -71,6 +71,12 @@ $white: hsl(0, 0%, 100%);
             top: 3vh;
             right: 10vh;
             border-radius: 2vh;
+            @include extra-large{
+                width:3vh;
+                height:2vh;
+                right: 16vh;
+                top: 4vh;
+            }
             p{ 
                color: $light-grayish-blue;
                font-size: 1.3vh;
@@ -83,11 +89,15 @@ $white: hsl(0, 0%, 100%);
             position: absolute;
             left: 0;
             right: 0;
+            z-index: 4;
+            @include extra-large{
+                left: 100vh;
+            }
             &-content{
               transform: scale(0);
             }
             &-content.visible{
-              
+                box-shadow: 0.1vh 1vh 1vh rgba(128, 128, 128, 0.419);
                 transform: scale(1);
                 background-color: $light-grayish-blue;
                 border-radius: 1.5vh;
@@ -113,7 +123,7 @@ $white: hsl(0, 0%, 100%);
                 border-radius: 1.5vh;
                 width: 43vh;
                 height: 33vh;
-                margin: auto;
+                margin: auto; 
                 h4{
                     padding: 3vh;
                 }
@@ -151,7 +161,7 @@ $white: hsl(0, 0%, 100%);
             background-color: rgba(27, 27, 54, 0.525);
             width: 100%;
             height: 120%;
-            z-index: 2;
+            z-index: 4;
             top: 0;
             transform: scale(0);
             transition: 50ms ease-in ;
@@ -219,6 +229,8 @@ $white: hsl(0, 0%, 100%);
             padding-left: 4vh;
             transform:translateX(0vh);
             transition: 500ms ease-in ;
+            position: absolute;
+            z-index: 2;
             img{
                margin-bottom: 5vh;  
                margin-top: 2vh; 
@@ -258,6 +270,7 @@ $white: hsl(0, 0%, 100%);
     }
     }
    .section{
+       margin-top: -45vh;
     @include extra-large{
         display: grid;
         grid-template-columns: auto auto;
@@ -267,8 +280,32 @@ $white: hsl(0, 0%, 100%);
         margin-top: -30vh;
        
     }
-    margin-left: 3vh;
-    margin-right: 2vh;
+    &__hidden{
+        background-color:rgba(0, 0, 0, 0.438);
+        position: absolute;
+        width:100%;
+        height: 110vh;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 6;
+        transform: scale(1);
+        transition: 100ms ease-in;
+    }
+    &__hidden.hidden{
+        transform: scale(0);
+        transition: 100ms ease-in;
+
+    }
+      &__content{
+        display: block;
+        position: relative;
+        background-color: white;
+        z-index: 1;
+        margin-left: 3vh;
+        margin-right: 2vh;
+      }
        &__main{
            h4{
                text-transform: uppercase;
@@ -292,18 +329,18 @@ $white: hsl(0, 0%, 100%);
                font-size: 1.8vh;
                color: $dark-grayish-blue;
                @include extra-large{
-                   font-size: 2.2vh;
+                   font-size: 2vh;
 
                 }
            }
        }
 
     &__carousel{
-        @include extra-large(){
+        @include extra-large{
             position:relative;
-            
         }
     }
+   
     &__mark{
         display: none;
         .current{
@@ -313,7 +350,7 @@ $white: hsl(0, 0%, 100%);
 
         @include extra-large{
             display:block;
-            width: 80vh;
+            width: 70vh;
             margin-top: 65vh;
             img{
                 width: 12vh;
@@ -323,37 +360,120 @@ $white: hsl(0, 0%, 100%);
             
         }
     }
+&__mark.hidden{
+    img{
+        width: 10vh;
+        margin:auto;
+       
+    }
+    @include extra-large{
+        width:50vh; //41.6vh;
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        margin-top: 75vh;
+        
+    }
+}
+
+    &__track{
+        height: 50vh;
+        position: relative;
+        overflow: hidden;
+        margin-left: 0vh;
+        margin-right: 0vh;
+        
+        z-index: 0;
+        @include extra-large{
+            height: 80vh;
+        
+        }
+    }
+    &__track.hidden{
+        position: relative;
+        width: 76vh;
+        height: auto;
+        margin: auto;
+        margin-top: 15vh;
+ 
+    }
+    &__close{
+        width: 3vh;
+        position: absolute;
+        z-index: 8;
+        bottom:85vh;
+        left: 120vh;
+        cursor: pointer;
+    }
     &__carousel-content{
+        transition: 400ms ease-in;
+        bottom: 45vh;
+        z-index: 5;
         img{
-            position: absolute;
-            width:48vh;
+            width:100%;
             top:10px; 
-            @include extra-large(){
+            position: absolute;
+            
+            @include extra-large{
                 width:60vh;
                 height: auto;
                 border-radius: 5vh;
+                z-index: 2;
             }
         }
     }
+    &__carousel-content.hidden{
+        width: 100%;
+        transition: 400ms ease-in;
+        z-index: 5;
+        img{
+            bottom: 10vh;
+            position: absolute;
+            width:100%;
+            top:10px; 
+            left: 0%;
+            
+            @include extra-large{
+                width:70vh;
+                height: auto;
+                border-radius: 2vh;
+                z-index: 2;
+            }
+        }
+    }
+
+   
     &__content{
         @include extra-large(){
            margin-top: 10vh;
         }
     }
-       &__boutons{
+    &__boutons{
+        @include extra-large{
+            width: 50vh;
+          
+           }
            
        }
-       &__direction{
-        position: absolute;
-        background-color: $white;
-        width:40px;
-        height: 40px;
-        border-radius: 40px;
-        z-index: 2;
-        bottom: 550px;
+       #group_boutons{
         @include extra-large{
-            display: none;
-        }
+            display: grid;
+            grid-template-columns: auto auto;
+          
+           }
+          
+       }
+       &__direction{
+            position: absolute;
+            background-color: $white;
+            width:40px;
+            height: 40px;
+            border-radius: 40px;
+            z-index: 5;
+            bottom: 510px;
+            @include extra-large{
+                display: none;
+            }
         img{
             display: block;
             width: 1.3vh;
@@ -362,22 +482,46 @@ $white: hsl(0, 0%, 100%);
         }
        
         &--right{
-            
             right: 0;
         }
         &--left{
-            z-index: 2;
             left: 0;
-            
         }
         
     }
+    &__directionHidden{
+        position: absolute;
+        background-color: $white;
+        width:40px;
+        height: 40px;
+        border-radius: 40px;
+        z-index: 5;
+        bottom: 50vh;
+        @include extra-large{
+            display: block;
+        }
+    img{
+        display: block;
+        width: 1.3vh;
+        margin: auto;
+        margin-top: 1.5vh;
+    }
+   
+    &--right{
+        right: 53vh;
+    }
+    &--left{
+        left: 47vh;
+    }
+    
+}
 
        &__prices{
            margin-top: 4vh;
            display: grid;
            grid-template-columns: 18vh 14vh auto;
            align-items: center;
+          
            h3{
                display: block;
                background-color:$pale-orange;
@@ -392,7 +536,11 @@ $white: hsl(0, 0%, 100%);
             display: block;
             color: $dark-grayish-blue;
             text-decoration: line-through;
-        }
+           }
+            @include extra-large{
+                grid-template-columns: 15vh auto;
+            
+            }
        }
        &__howMany{
            background-color: $light-grayish-blue;
@@ -401,10 +549,15 @@ $white: hsl(0, 0%, 100%);
            margin-top: 4vh;
            padding-left: 4vh;
            display: grid;
-           grid-template-columns: auto auto auto;
+           grid-template-columns: 0vh 0vh 0vh;
            align-items: center;
            column-gap: 9vh;
            border-radius: 2vh;
+           @include extra-large{
+                width: 21vh;
+                padding-left: 0vh;
+                padding-left: 1vh;
+           }
            p{
                font-weight: 700;
            }
@@ -421,6 +574,8 @@ $white: hsl(0, 0%, 100%);
            color: $pale-orange;
            border-radius: 2vh;
            column-gap: 2vh;
+           box-shadow: 0.2vh 0.7vh 10vh $pale-orange;
+             ;
        }
        #svg{
            width: 2.3vh;
